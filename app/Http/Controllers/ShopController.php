@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Contact;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Spatie\FlareClient\View;
@@ -82,6 +83,7 @@ class ShopController extends Controller
         // Validation passed, create a new booking record
         $booking = new Booking();
         $booking->name = $request->input('name');
+        $booking->booking_no = 'BN-' . date('YmdHis');
         $booking->email = $request->input('email');
         $booking->phone = $request->input('phone');
         $booking->contact_through = $request->input('contact_through');
@@ -96,6 +98,30 @@ class ShopController extends Controller
     public function thankYou()
     {
         return view('shop.thank-you');
+    }
+
+
+    public function aboutUs()
+    {
+        return view('shop.about');
+    }
+
+    public function contactUs()
+    {
+        return view('shop.contact');
+    }
+
+    public function contactStore(Request $request)
+    {
+        $contact = new Contact();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
+        $contact->save();
+
+        // Optionally, you can return a response or redirect the user
+        return redirect()->back()->with('success', 'Your message has been successfully sent!');
     }
 
 

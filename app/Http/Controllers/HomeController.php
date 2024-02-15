@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+
+        // Count all bookings for the authenticated service provider
+        $totalBookings = Booking::count();
+
+        // Count pending bookings for the authenticated service provider
+        $pendingBookings = Booking::where('status', 'pending')
+                                   ->count();
+
+        // Count completed bookings for the authenticated service provider
+        $completedBookings = Booking::where('status', 'completed')
+                                     ->count();
+
+        // Count total services for the authenticated service provider
+        $totalServices = Service::count();
+
+        return view('admin.home', compact('totalBookings', 'pendingBookings', 'completedBookings', 'totalServices'));
     }
 }

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\Booking;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\ServiceProvider;
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Validator;
 
 class SellerController extends Controller
@@ -58,6 +61,25 @@ class SellerController extends Controller
     }
 
 
+    public function service()
+    {
+        $services = Service::with('serviceProvider')->get();
+
+        return view('admin.seller.service', compact('services'));
+
+    }
+
+    public function booking()
+    {
+        $bookings = Booking::with('serviceProvider','service')->get();
+        return view('admin.seller.booking', compact('bookings'));
+    }
+
+    public function contact()
+    {
+        $contacts = Contact::all();
+        return view('admin.contact.index', compact('contacts'));
+    }
 
     public function delete(string $id)
     {
@@ -68,5 +90,6 @@ class SellerController extends Controller
 
         return redirect()->back()->with('success', 'Service Provider deleted successfully');
     }
+
 
 }

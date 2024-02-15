@@ -12,7 +12,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::all();
+        $services = Service::where('service_provider_id', Auth::user()->id)->get();
         return view('service_provider.service.index', compact('services'));
     }
 

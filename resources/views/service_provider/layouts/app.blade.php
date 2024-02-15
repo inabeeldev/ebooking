@@ -176,21 +176,26 @@
 
             <!-- Recommendations -->
 
-            <li class="menu-item ">
+            <li class="menu-item {{ request()->is('service-provider/all-bookings') || request()->is('service-provider/pending-bookings') || request()->is('service-provider/complete-bookings') ? 'active' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                    <div data-i18n="roles">Recommendations</div>
+                    <div data-i18n="roles">Bookings</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item ">
-                    <a href="" class="menu-link">
-                        <div data-i18n="all_roles">List</div>
+                    <li class="menu-item {{ request()->is('service-provider/all-bookings') ? 'active' : '' }}">
+                    <a href="{{ route('all-bookings') }}" class="menu-link">
+                        <div data-i18n="all_roles">All Bookings</div>
                     </a>
                     </li>
-                    <li class="menu-item ">
-                    <a href="" class="menu-link">
-                        <div data-i18n="create_role">Request One</div>
+                    <li class="menu-item {{ request()->is('service-provider/pending-bookings') ? 'active' : '' }}">
+                    <a href="{{ route('pending-bookings') }}" class="menu-link">
+                        <div data-i18n="create_role">Pending Bookings</div>
                     </a>
+                    </li>
+                    <li class="menu-item {{ request()->is('service-provider/complete-bookings') ? 'active' : '' }}">
+                        <a href="{{ route('complete-bookings') }}" class="menu-link">
+                            <div data-i18n="all_roles">Completed Bookings</div>
+                        </a>
                     </li>
                 </ul>
             </li>
@@ -253,7 +258,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="{{ route('service-providers-profile') }}">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
                       </a>

@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('service_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('service_provider_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('booking_no');
             $table->string('name');
             $table->string('email');
             $table->string('phone');
             $table->enum('contact_through', ['email', 'phone', 'whatsapp']);
             $table->text('message')->nullable();
+            $table->enum('status', ['pending', 'completed'])->default('pending');
             $table->timestamps();
         });
     }

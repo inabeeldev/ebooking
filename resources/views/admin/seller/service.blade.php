@@ -1,4 +1,4 @@
-@extends('service_provider.layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
 
@@ -47,10 +47,11 @@
             <tr>
                 <th>#</th>
                 <th>Image</th>
-                <th>Name</th>
+                <th>Provider Name</th>
+                <th>Provider Email</th>
+                <th>Service Name</th>
                 <th>Service Type</th>
                 <th>Description</th>
-                <th>Action</th>
             </tr>
             </thead>
             <tbody class="table-border-bottom-0">
@@ -61,6 +62,8 @@
                     @if($service->image)
                         <img src="{{ asset('public/images/services/' . $service->image) }}" alt="{{ $service->name }}" width="50" style="border-radius: 50%;">
                     @endif</td>
+                    <td>{{ $service->serviceProvider->name }}</td>
+                    <td>{{ $service->serviceProvider->email }}</td>
                     <td>{{ $service->name }}</td>
                     <td>{{ $service->service_type }}</td>
                     <td>
@@ -71,51 +74,7 @@
                         @endphp
                         {{ $limitedDescription }}
                     </td>
-
-                    <td>
-                        <div class="btn-group" role="group" aria-label="User Actions">
-                            <button type="button" class="btn btn-primary btn-show" data-bs-toggle="modal" data-bs-target="#showServiceModal2{{ $service->id }}">Show</button>
-                            {{-- <button type="button" class="btn btn-warning btn-edit" data-user-id="{{ $user->id }}">Edit</button> --}}
-                            <form method="post" action="{{ route('services-delete', ['id' => $service->id]) }}" onsubmit="return confirm('Are you sure you want to delete this Service?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-delete" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">Delete</button>
-                            </form>
-                        </div>
-                    </td>
                 </tr>
-
-                <!-- Show Modal -->
-               <!-- Show Modal -->
-                <div class="modal fade" id="showServiceModal2{{ $service->id }}" tabindex="-1" aria-labelledby="showServiceModalLabel2{{ $service->id }}" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header bg-primary text-white">
-                                <h5 class="modal-title" id="showServiceModalLabel2{{ $service->id }}" style="color: white">Service Details</h5>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="mb-3">
-                                    <strong>Service Name:</strong> {{ $service->name }}
-                                </div>
-                                <div class="mb-3">
-                                    <strong>Service Description:</strong> {{ $service->description }}
-                                </div>
-
-                                <div class="mb-3">
-                                    <strong>Service Type:</strong> {{ $service->service_type ?? 'Not available' }}
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Show Modal End -->
                 @endforeach
             </tbody>
         </table>

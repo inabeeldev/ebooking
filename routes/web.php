@@ -25,6 +25,11 @@ Route::post('/complete-booking', [App\Http\Controllers\ShopController::class, 'c
 Route::get('/thank-you', [App\Http\Controllers\ShopController::class, 'thankYou'])->name('thank-you');
 
 
+Route::get('/about-us', [App\Http\Controllers\ShopController::class, 'aboutUs'])->name('about-us');
+Route::get('/contact-us', [App\Http\Controllers\ShopController::class, 'contactUs'])->name('contact-us');
+Route::post('/contact-store', [App\Http\Controllers\ShopController::class, 'contactStore'])->name('contact-store');
+
+
 
 
 
@@ -43,6 +48,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('service-providers/store', [App\Http\Controllers\admin\SellerController::class, 'store'])->name('service-providers-store');
         Route::delete('service-providers/delete/{id}', [App\Http\Controllers\admin\SellerController::class, 'delete'])->name('service-providers-delete');
 
+        Route::get('services', [App\Http\Controllers\admin\SellerController::class, 'service'])->name('services');
+        Route::get('bookings', [App\Http\Controllers\admin\SellerController::class, 'booking'])->name('bookings');
+
+        Route::get('contacts', [App\Http\Controllers\admin\SellerController::class, 'contact'])->name('contacts');
+
+
     });
 
 });
@@ -56,13 +67,29 @@ Route::group(['prefix' => 'service-provider'], function () {
     Route::post('/logout', [App\Http\Controllers\seller\AuthController::class, 'logout'])->name('service-providers-logout');
 
 
+
+
     Route::middleware('auth:seller')->group(function () {
         Route::get('/home', [App\Http\Controllers\seller\HomeController::class, 'index'])->name('service-providers-home');
+        Route::get('/profile', [App\Http\Controllers\seller\HomeController::class, 'profile'])->name('service-providers-profile');
+        Route::post('/profile/update', [App\Http\Controllers\seller\HomeController::class, 'updateProfile'])->name('update-profile');
+
+
 
         Route::get('services/list', [App\Http\Controllers\seller\ServiceController::class, 'index'])->name('services-list');
         Route::get('services/create', [App\Http\Controllers\seller\ServiceController::class, 'create'])->name('services-create');
         Route::post('services/store', [App\Http\Controllers\seller\ServiceController::class, 'store'])->name('services-store');
         Route::delete('services/delete/{id}', [App\Http\Controllers\seller\ServiceController::class, 'delete'])->name('services-delete');
+
+
+        Route::get('pending-bookings', [App\Http\Controllers\seller\BookingController::class, 'pendingBooking'])->name('pending-bookings');
+        Route::get('complete-bookings', [App\Http\Controllers\seller\BookingController::class, 'completedBooking'])->name('complete-bookings');
+        Route::get('all-bookings', [App\Http\Controllers\seller\BookingController::class, 'allBooking'])->name('all-bookings');
+
+        Route::patch('/booking/{id}/status', [App\Http\Controllers\seller\BookingController::class, 'updateStatus'])->name('booking-status');
+        Route::delete('booking/delete/{id}', [App\Http\Controllers\seller\BookingController::class, 'delete'])->name('booking-delete');
+
+
 
     });
 

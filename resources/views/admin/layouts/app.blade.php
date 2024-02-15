@@ -174,25 +174,25 @@
             </li>
 
 
-            <!-- Recommendations -->
-
-            <li class="menu-item ">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                    <div data-i18n="roles">Recommendations</div>
+            <li class="menu-item {{ request()->is('admin/services') ? 'active' : '' }}">
+                <a href="{{ route('services') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">Services</div>
                 </a>
-                <ul class="menu-sub">
-                    <li class="menu-item ">
-                    <a href="" class="menu-link">
-                        <div data-i18n="all_roles">List</div>
-                    </a>
-                    </li>
-                    <li class="menu-item ">
-                    <a href="" class="menu-link">
-                        <div data-i18n="create_role">Request One</div>
-                    </a>
-                    </li>
-                </ul>
+            </li>
+
+            <li class="menu-item {{ request()->is('admin/bookings') ? 'active' : '' }}">
+                <a href="{{ route('bookings') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">Bookings</div>
+                </a>
+            </li>
+
+            <li class="menu-item {{ request()->is('admin/contacts') ? 'active' : '' }}">
+                <a href="{{ route('contacts') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">Contacts</div>
+                </a>
             </li>
 
 
@@ -252,15 +252,8 @@
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
-                    <li>
-                      <a class="dropdown-item" href="">
-                        <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
+
+
                     <li>
                       <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">

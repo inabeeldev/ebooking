@@ -7,7 +7,7 @@
 </section> --}}
 
  <!-- ======= Breadcrumbs ======= -->
- <div class="breadcrumbs d-flex align-items-center" style="background-image: url('{{ asset('public/customer/img/breadcrumbs-bg.jpg') }}');">
+ <div class="breadcrumbs d-flex align-items-center" style="">
     <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
       <h2>Book Now</h2>
@@ -35,8 +35,7 @@
                         <p class="fst-italic">
                             {{ $service->description }}
                         </p>
-                        <a href="service-details.html" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
-                                class="bi bi-arrow-right"></i></a>
+
                     </div>
                 </div>
             </div><!-- End tab content item -->

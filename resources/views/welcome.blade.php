@@ -62,8 +62,8 @@
               <li><a href="{{ route('table') }}">Table Reservation</a></li>
             </ul>
           </li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{{ route('about-us') }}">About</a></li>
+          <li><a href="{{ route('contact-us') }}">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -80,12 +80,12 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>UpConstruction</h3>
+              <h3>E-Booking</h3>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                Allama Iqbal Park <br>
+                Sheikhupura, Pakistan<br><br>
+                <strong>Phone:</strong> +92 (309) 2723530<br>
+                <strong>Email:</strong> ebooking@example.com<br>
               </p>
               <div class="social-links d-flex mt-3">
                 <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
@@ -99,44 +99,37 @@
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ route('about-us') }}">About</a></li>
+                <li><a href="{{ route('contact-us') }}">Contact</a></li>
             </ul>
           </div><!-- End footer links column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
+                <li><a href="{{ route('stadium') }}">Stadium Seat</a></li>
+                <li><a href="{{ route('hotel') }}">Hotel Room</a></li>
+                <li><a href="{{ route('event') }}">Event Hall</a></li>
+
             </ul>
           </div><!-- End footer links column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Hic solutasetp</h4>
+            <h4>More Services</h4>
             <ul>
-              <li><a href="#">Molestiae accusamus iure</a></li>
-              <li><a href="#">Excepturi dignissimos</a></li>
-              <li><a href="#">Suscipit distinctio</a></li>
-              <li><a href="#">Dilecta</a></li>
-              <li><a href="#">Sit quas consectetur</a></li>
+                <li><a href="{{ route('car') }}">Car Booking</a></li>
+                <li><a href="{{ route('cinema') }}">Cinema Ticket</a></li>
+                <li><a href="{{ route('table') }}">Table Reservation</a></li>
+
             </ul>
           </div><!-- End footer links column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Nobis illum</h4>
+            <h4>Login</h4>
             <ul>
-              <li><a href="#">Ipsam</a></li>
-              <li><a href="#">Laudantium dolorum</a></li>
-              <li><a href="#">Dinera</a></li>
-              <li><a href="#">Trodelas</a></li>
-              <li><a href="#">Flexo</a></li>
+                <li><a href="{{ route('login') }}">Admin Login</a></li>
+                <li><a href="{{ route('service-providers-login') }}">Service Provider Login</a></li>
             </ul>
           </div><!-- End footer links column-->
 

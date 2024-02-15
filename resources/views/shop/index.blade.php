@@ -15,7 +15,7 @@
             <p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
               laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get Started</a>
+              <a data-aos="fade-up" data-aos-delay="200" href="#" onclick="scrollToSection('features2')" class="btn-get-started">Book Now</a>
           </div>
         </div>
       </div>
@@ -174,7 +174,7 @@
 
 
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features section-bg">
+    <section id="features2" class="features section-bg">
       <div class="container" data-aos="fade-up">
 
         <ul class="nav nav-tabs row g-2 d-flex">
@@ -216,7 +216,7 @@
 
           </ul>
 
-        <div class="tab-content">
+        <div class="tab-content" id="features2">
 
             <div class="tab-pane active show" id="tab-1">
                 <div class="row">
@@ -231,7 +231,7 @@
                       <li><i class="bi bi-check2-all"></i> Choose your preferred date, time, and seating.</li>
                       <li><i class="bi bi-check2-all"></i> Receive instant confirmation of your reservation.</li>
                     </ul>
-                    <a href="service-details.html" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
+                    <a href="{{ route('table') }}" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
                         class="bi bi-arrow-right"></i></a>
                   </div>
                   <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -253,7 +253,7 @@
                       <li><i class="bi bi-check2-all"></i> Select seats based on your preferences and budget.</li>
                       <li><i class="bi bi-check2-all"></i> Receive e-tickets instantly upon successful booking.</li>
                     </ul>
-                    <a href="service-details.html" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
+                    <a href="{{ route('stadium') }}" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
                         class="bi bi-arrow-right"></i></a>
                   </div>
                   <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -275,7 +275,7 @@
                       <li><i class="bi bi-check2-all"></i> Filter options based on price, location, and amenities.</li>
                       <li><i class="bi bi-check2-all"></i> Securely reserve your room and receive booking confirmation.</li>
                     </ul>
-                    <a href="service-details.html" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
+                    <a href="{{ route('hotel') }}" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
                         class="bi bi-arrow-right"></i></a>
                   </div>
                   <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -297,7 +297,7 @@
                       <li><i class="bi bi-check2-all"></i> Customize your event with flexible booking options.</li>
                       <li><i class="bi bi-check2-all"></i> Coordinate with venue staff for seamless event planning.</li>
                     </ul>
-                    <a href="service-details.html" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
+                    <a href="{{ route('event') }}" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
                         class="bi bi-arrow-right"></i></a>
                   </div>
                   <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -319,7 +319,7 @@
                       <li><i class="bi bi-check2-all"></i> Select rental duration and pickup/drop-off locations.</li>
                       <li><i class="bi bi-check2-all"></i> Enjoy hassle-free booking and reliable customer support.</li>
                     </ul>
-                    <a href="service-details.html" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
+                    <a href="{{ route('car') }}" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
                         class="bi bi-arrow-right"></i></a>
                   </div>
                   <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -341,7 +341,7 @@
                       <li><i class="bi bi-check2-all"></i> Book tickets in advance and avoid long queues.</li>
                       <li><i class="bi bi-check2-all"></i> Choose seats and pay securely online.</li>
                     </ul>
-                    <a href="service-details.html" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
+                    <a href="{{ route('cinema') }}" class="readmore stretched-link mt-3" style="font-size: 22px; font-weight: bold;">Book Now <i
                         class="bi bi-arrow-right"></i></a>
                   </div>
                   <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -710,7 +710,17 @@
 
   </main><!-- End #main -->
 
+  <script>
+    function scrollToSection(sectionId) {
+        // Get the target section by its id
+        var section = document.getElementById(sectionId);
 
+        // Scroll to the target section
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
 
 
 @endsection
