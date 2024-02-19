@@ -118,6 +118,10 @@
                                 <div class="mb-3">
                                     <strong>Customer Phone:</strong> {{ $booking->phone ?? 'Not available' }}
                                 </div>
+                                <div class="mb-3">
+                                    <strong>Booking Time:</strong> {{ isset($booking->booking_date_time) ? date('d-M-Y | h:ia', strtotime($booking->booking_date_time)) : 'Not available' }}
+
+                                </div>
 
                                 <div class="mb-3">
                                     <strong>Contact Customer Through:</strong> {{ $booking->contact_through ?? 'Not available' }}

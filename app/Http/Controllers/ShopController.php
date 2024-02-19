@@ -70,6 +70,7 @@ class ShopController extends Controller
             'message' => 'nullable|string|max:1000',
             'service_id' => 'required|exists:services,id', // Assuming you have a 'services' table
             'service_provider_id' => 'required|exists:service_providers,id', // Assuming you have a 'service_providers' table
+            'booking_date_time' => 'required|date_format:Y-m-d\TH:i', // Validation rule for datetime-local input
         ];
 
         // Create a new validator instance
@@ -90,10 +91,12 @@ class ShopController extends Controller
         $booking->message = $request->input('message');
         $booking->service_id = $request->input('service_id');
         $booking->service_provider_id = $request->input('service_provider_id');
+        $booking->booking_date_time = $request->input('booking_date_time'); // Assign the value
         $booking->save();
 
         return redirect()->route('thank-you');
     }
+
 
     public function thankYou()
     {

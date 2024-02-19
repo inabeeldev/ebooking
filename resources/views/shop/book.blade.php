@@ -84,6 +84,10 @@
                         <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" required>
                     </div>
                     <div class="form-group">
+                        <label for="booking_date_time">Booking Date and Time</label>
+                        <input type="datetime-local" class="form-control" name="booking_date_time" id="booking_date_time" required>
+                    </div>
+                    <div class="form-group">
                         <label for="contact_through">How should the Service provider contact you?</label>
                         <select class="form-select" name="contact_through" id="contact_through" required>
                             <option value="" selected disabled>Choose an option</option>

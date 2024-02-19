@@ -14,7 +14,7 @@ class Booking extends Model
 
     protected $fillable = [
         'service_id', 'service_provider_id', 'booking_no', 'name', 'email', 'phone',
-        'contact_through', 'message', 'status'
+        'contact_through', 'message', 'status','booking_date_time'
     ];
 
     public function service()

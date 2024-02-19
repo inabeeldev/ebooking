@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->enum('contact_through', ['email', 'phone', 'whatsapp']);
+            $table->dateTime('booking_date_time')->nullable();
             $table->text('message')->nullable();
             $table->enum('status', ['pending', 'completed'])->default('pending');
             $table->timestamps();
