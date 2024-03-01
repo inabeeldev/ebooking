@@ -62,6 +62,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'service-provider'], function () {
 
 
+    Route::get('/register', [App\Http\Controllers\seller\AuthController::class, 'registerForm'])->name('service-providers-register');
+    Route::post('/register/post', [App\Http\Controllers\seller\AuthController::class, 'storeRegistration'])->name('service-providers-register-post');
     Route::get('/login', [App\Http\Controllers\seller\AuthController::class, 'loginForm'])->name('service-providers-login');
     Route::post('/login/post', [App\Http\Controllers\seller\AuthController::class, 'storeLogin'])->name('service-providers-login-post');
     Route::post('/logout', [App\Http\Controllers\seller\AuthController::class, 'logout'])->name('service-providers-logout');

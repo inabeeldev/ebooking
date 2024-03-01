@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\seller;
 
-use App\Http\Controllers\Controller;
+use Mail;
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use App\Mail\BookingCompleted;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
@@ -42,6 +44,12 @@ class BookingController extends Controller
         $booking = Booking::findOrFail($id);
         $booking->status = $request->input('status');
         $booking->save();
+
+        // Check if the status is "completed"
+        if ($booking->status === 'completed') {
+            // Send email notification
+            Mail::to($booking->email)->send(new BookingCompleted($booking));
+        }
 
         return redirect()->back(); // Redirect back to the previous page
     }

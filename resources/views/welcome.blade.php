@@ -126,10 +126,11 @@
           </div><!-- End footer links column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Login</h4>
+            <h4>Login or Register</h4>
             <ul>
                 <li><a href="{{ route('login') }}">Admin Login</a></li>
                 <li><a href="{{ route('service-providers-login') }}">Service Provider Login</a></li>
+                <li><a href="{{ route('service-providers-register') }}">Service Provider Registration</a></li>
             </ul>
           </div><!-- End footer links column-->
 

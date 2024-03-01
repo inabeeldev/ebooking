@@ -51,7 +51,6 @@
                 <th>Customer Name</th>
                 <th>Customer Email</th>
                 <th>Status</th>
-                <th>Chnage Status</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -64,7 +63,7 @@
                     <td>{{ $booking->name }}</td>
                     <td>{{ $booking->email }}</td>
                     <td>{{ $booking->status }}</td>
-                    <td>
+                    {{-- <td>
                         <form method="post" action="{{ route('booking-status', ['id' => $booking->id]) }}">
                             @csrf
                             @method('PATCH') <!-- Use the PATCH method for updating -->
@@ -73,7 +72,7 @@
                                 <option value="completed" {{ $booking->status === 'completed' ? 'selected' : '' }}>Completed</option>
                             </select>
                         </form>
-                    </td>
+                    </td> --}}
 
 
                     <td>

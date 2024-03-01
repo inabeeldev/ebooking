@@ -139,7 +139,7 @@
 
               <p class="text-center">
                 <span>New on our platform?</span>
-                <a href="">
+                <a href="{{ route('service-providers-register') }}">
                   <span>Create an account</span>
                 </a>
               </p>
